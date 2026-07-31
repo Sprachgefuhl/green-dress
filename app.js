@@ -34,4 +34,8 @@ app.post('/batch', async (req, res) => {
   }
 });
 
+app.get('/health', (req, res) => {
+  res.send(200);
+});
+
 app.listen(PORT, '0.0.0.0', () => console.log(`Server running: ${PORT}`));
