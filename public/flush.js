@@ -2,8 +2,8 @@ let pending = 0;
 let timer = null;
 const DELAY = 800;
 
-function queueIncrement() {
-  pending++;
+function queueIncrement(increment) {
+  pending += increment;
   clearTimeout(timer);
   timer = setTimeout(flush, DELAY);
 }
