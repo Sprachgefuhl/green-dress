@@ -40,7 +40,7 @@ function loop() {
   const cx = canvas.width / 2;
   const cy = canvas.height / 2;
 
-  drawText(emojiCount, cx, 30, 30, '#F8F9FA', 'center');
+  // drawText(emojiCount, cx, 30, 30, '#F8F9FA', 'center');
   if (Date.now() < flashGreenUntil) {
     drawText(emojiCount, cx, 30, 30, '#2ecc71', 'center');
   }

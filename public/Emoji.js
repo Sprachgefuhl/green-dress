@@ -49,7 +49,7 @@ class Emoji {
     if (this.y > canvas.height) {
       emojiCount += this.increment;
       this.dead = true;
-      flashGreenUntil = Date.now() + 500;
+      flashGreenUntil = Date.now() + 1500;
       this.y = canvas.height;
     }
   }
