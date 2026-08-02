@@ -13,3 +13,46 @@ body {
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
 }
+
+.canvas {
+  display: none;
+}
+
+.load-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+}
+
+.load-screen p {
+  padding-bottom: 10px;
+  color: #FAFAFA;
+  font-size: 18px;
+  font-family: 'system-ui';
+}
+
+.bars {
+  position: relative;
+  width: 125px;
+  height: 3px;
+}
+
+.bar {
+  position: absolute;
+  top: 0;
+  height: 100%;
+}
+
+.bar.base {
+  left: 0;
+  width: 100%;
+  background-color: #afafaf;
+}
+
+.bar.progress {
+  left: 0;
+  width: 0;
+  background-color: #FAFAFA;
+}

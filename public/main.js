@@ -1,9 +1,9 @@
 let emojis = [];
 
-function drawText(text, x, y, size, colour, align, weight = 'normal') {
-  ctx.font = `${weight} ${size}px system-ui`;
+function drawText(text, x, y, size, colour, weight = 'normal') {
+  ctx.font = `${weight} ${size}px monospace`;
   ctx.textBaseline = 'middle';
-  ctx.textAlign = align;
+  ctx.textAlign = 'center';
   ctx.fillStyle = colour;
   ctx.fillText(text, x, y);
 }
@@ -17,39 +17,34 @@ function d(num) {
   return num < 10 ? `0${num}` : `${num}`;
 }
 
+let lastSecond = -1;
+let secs, mins, hrs, days = 0;
+
 function loop() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  let lastSecond = -1;
-  let secs;
-  let mins;
-  let hrs;
-  let days;
   let now = Math.floor(Date.now() / 1000);
   if (now > lastSecond) {
     lastSecond = now;
     const diff = Date.now() - lastSpoke;
-
     secs = Math.floor((diff / 1000) % 60);
     mins = Math.floor((diff / (1000 * 60)) % 60);
-    hrs = Math.floor(diff / (1000 * 60 * 60));
+    hrs = Math.floor(diff / (1000 * 60 * 60) % 24);
     days = Math.floor(diff / (1000 * 60 * 60 * 24));
   }
-
 
   const cx = canvas.width / 2;
   const cy = canvas.height / 2;
 
-  // drawText(emojiCount, cx, 30, 30, '#F8F9FA', 'center');
   if (Date.now() < flashGreenUntil) {
-    drawText(emojiCount, cx, 30, 30, '#2ecc71', 'center');
+    drawText(emojiCount, cx, 30, 30, '#2ecc71');
   }
 
-  drawText(`${days} Days`, cx, cy - 30, 30, '#F8F9FA', 'center', 'bold');
+  const dayText = days == 1 ? `${days} Day` : `${days} Days`;
+  drawText(dayText, cx, cy - 30, 30, '#F8F9FA');
 
   const time = `${d(hrs)}:${d(mins)}:${d(secs)}`;
-  const timeWidth = ctx.measureText(time).width;
-  drawText(time, cx - timeWidth / 1.3, cy + 30, 50, '#F8F9FA', 'left');
+  drawText(time, cx, cy + 30, 50, '#F8F9FA');
 
   for (const emoji of emojis) {
     emoji.fall();

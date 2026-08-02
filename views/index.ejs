@@ -11,12 +11,20 @@
 </head>
 
 <body>
+  <div class="load-screen">
+    <p id="perc">0%</p>
+    <div class="bars">
+      <div class="bar base"></div>
+      <div class="bar progress"></div>
+    </div>
+  </div>
   <canvas id="cvs" data-lastspoke="<%= lastSpoke %>" data-dresses="<%= dresses %>"></canvas>
 
-  <script src="preload.js"></script>
+  <script src="loadScreen.js"></script>
+  <!-- <script src="preload.js"></script>
   <script src="Emoji.js"></script>
   <script src="flush.js"></script>
-  <script src="main.js"></script>
+  <script src="main.js"></script> -->
 </body>
 
 </html>
