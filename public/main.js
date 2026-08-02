@@ -25,7 +25,13 @@ function loop() {
   let mins;
   let hrs;
   let days;
+<<<<<<< HEAD
   let now = Math.floor(Date.now() / 1000);
+=======
+
+  let now = Math.floor(Date.now() / 1000);
+
+>>>>>>> 41e8df723d917286cd063e2546f12185016c5cff
   if (now > lastSecond) {
     lastSecond = now;
     const diff = Date.now() - lastSpoke;
@@ -36,6 +42,16 @@ function loop() {
     days = Math.floor(diff / (1000 * 60 * 60 * 24));
   }
 
+<<<<<<< HEAD
+=======
+  // delete off screen emojis
+  for (let i = emojis.length - 1; i >= 0; i--) {
+    if (emojis[i].dead) {
+      emojis.splice(i, 1);
+    }
+  }
+
+>>>>>>> 41e8df723d917286cd063e2546f12185016c5cff
   const cx = canvas.width / 2;
   const cy = canvas.height / 2;
 
@@ -47,13 +63,20 @@ function loop() {
   drawText(`${days} Days`, cx, cy - 30, 30, '#F8F9FA', 'center', 'bold');
 
   const time = `${d(hrs)}:${d(mins)}:${d(secs)}`;
+<<<<<<< HEAD
   const textWidth = ctx.measureText(time).width;
   drawText(time, cx - textWidth / 1.3, cy + 30, 50, '#F8F9FA', 'left');
+=======
+  drawText(time, cx - 100, cy + 30, 50, '#F8F9FA', 'left');
+>>>>>>> 41e8df723d917286cd063e2546f12185016c5cff
 
   for (const emoji of emojis) {
     emoji.fall();
     emoji.collision();
+<<<<<<< HEAD
     emoji.kill();
+=======
+>>>>>>> 41e8df723d917286cd063e2546f12185016c5cff
     emoji.draw();
   }
 
