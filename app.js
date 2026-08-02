@@ -13,12 +13,13 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.get('/', async (req, res) => {
   const streak = await getStreak();
-  const updated = await handleStreak(streak.current, streak.high, streak.dresses);
+  // const updated = await handleStreak(streak.current, streak.high, streak.dresses);
 
   res.render('index', {
-    current: updated[0].current,
-    high: updated[0].high,
-    dresses: updated[0].dresses
+    // current: streak.current,
+    // high: updated.high,
+    lastSpoke: streak.last_spoke,
+    dresses: streak.dresses
   });
 });
 

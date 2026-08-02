@@ -21,10 +21,11 @@ const EMOJIS = [
   },
 ];
 const images = {};
-const currentStreak = Number(canvas.dataset.current) || 0;
+// const currentStreak = Number(canvas.dataset.current) || 0;
 let emojiCount = Number(canvas.dataset.dresses) || 0;
-let streakRipple = 0;
+// let streakRipple = 0;
 let flashGreenUntil = 0;
+let lastSpoke = new Date(canvas.dataset.lastspoke).getTime();
 
 function preloadImages() {
   EMOJIS.forEach(emoji => {

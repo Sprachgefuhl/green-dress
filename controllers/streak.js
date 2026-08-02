@@ -1,5 +1,5 @@
 const supabase = require('../config/supabase');
-const LAST_SPOKE = new Date('2026-07-30T15:21:00').getTime();
+const LAST_SPOKE = new Date('2026-08-01T16:15:00').getTime();
 const MS_PER_DAY = 1000 * 60 * 60 * 24;
 
 const getStreak = async () => {
@@ -27,7 +27,9 @@ const updateStreak = async (current, high) => {
 const handleStreak = async (current, high, dresses) => {
   const daysDiff = Math.floor((Date.now() - LAST_SPOKE) / MS_PER_DAY);
 
+  // new high score
   if (daysDiff > high) return updateStreak(daysDiff, daysDiff);
+  // new current score
   if (daysDiff > current) return updateStreak(daysDiff, high);
   return [{ current, high, dresses }];
 };

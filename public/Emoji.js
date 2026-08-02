@@ -1,9 +1,10 @@
 class Emoji {
-  constructor(x, y, increment, img) {
+  constructor(x, y, increment, img, list) {
     this.x = x;
     this.y = y;
     this.increment = increment;
     this.img = img;
+    this.list = list;
 
     this.w = 50;
     this.h = 50;
@@ -50,6 +51,14 @@ class Emoji {
       this.dead = true;
       flashGreenUntil = Date.now() + 500;
       this.y = canvas.height;
+    }
+  }
+
+  kill() {
+    for (let i = this.list.length - 1; i >= 0; i--) {
+      if (this.list[i].dead) {
+        this.list.splice(i, 1);
+      }
     }
   }
   
