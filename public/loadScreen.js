@@ -6,7 +6,7 @@ const scripts = ['preload', 'Emoji', 'flush', 'main'];
 let timeout = null;
 let progress = 0;
 
-function loadingScreen() {
+function loadingScreen() { 
   const randomProgressJump = Math.floor(Math.random() * (12 - 2 + 1)) + 2;
   const randomDelay = Math.floor(Math.random() * (100 - 20 + 1)) + 20;
 
@@ -31,4 +31,4 @@ function loadingScreen() {
   timeout = setTimeout(loadingScreen, randomDelay);
 }
 
-document.addEventListener('DOMContentLoaded', loadingScreen);
+loadingScreen();
