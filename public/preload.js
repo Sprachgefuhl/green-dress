@@ -1,23 +1,22 @@
 const ctx = canvas.getContext('2d');
-
 const EMOJIS = [
   {
     name: 'rainbow',
     src: '/images/rainbow.png',
     increment: 500,
-    chance: { min: 0, max: 0.1 }
+    chance: { min: 0, max: 0.3 }
   },
   {
     name: 'flower',
     src: '/images/flower.png',
     increment: 10,
-    chance: { min: 0.1, max: 5.1 }
+    chance: { min: 0.3, max: 5.3 }
   },
   {
     name: 'dress',
     src: '/images/dress.png',
     increment: 1,
-    chance: { min: 5.1, max: 100 }
+    chance: { min: 5.3, max: 100 }
   },
 ];
 const images = {};

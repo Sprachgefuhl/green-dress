@@ -20,6 +20,9 @@ function d(num) {
 let lastSecond = -1;
 let secs, mins, hrs, days = 0;
 
+let gamma;
+let beta;
+
 function loop() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -36,8 +39,11 @@ function loop() {
   const cx = canvas.width / 2;
   const cy = canvas.height / 2;
 
+  let formatCount = (emojiCount / 1000).toFixed(2);
   if (Date.now() < flashGreenUntil) {
-    drawText(emojiCount, cx, 30, 30, '#2ecc71');
+    drawText(`${formatCount}k`, cx, 30, 30, '#2ecc71');
+  } else {
+    drawText(`${formatCount}k`, cx, 30, 30, '#F8F9FA');
   }
 
   const dayText = days == 1 ? `${days} Day` : `${days} Days`;
@@ -46,9 +52,11 @@ function loop() {
   const time = `${d(hrs)}:${d(mins)}:${d(secs)}`;
   drawText(time, cx, cy + 30, 50, '#F8F9FA');
 
+  // drawText('High score!', cx, cy + 90, 20, '#F8F9FA');
+
   for (const emoji of emojis) {
     emoji.fall();
-    emoji.collision();
+    emoji.edges();
     emoji.kill();
     emoji.draw();
   }

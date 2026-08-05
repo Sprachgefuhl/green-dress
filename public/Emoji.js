@@ -26,7 +26,7 @@ class Emoji {
     this.angle += this.spin;
   }
 
-  collision() {
+  edges() {
     // right
     if (this.x > canvas.width - 25) {
       this.x = canvas.width - 25;
@@ -46,11 +46,11 @@ class Emoji {
     }
 
     // bottom
-    if (this.y > canvas.height) {
+    if (this.y > canvas.height - this.h / 2) {
       emojiCount += this.increment;
       this.dead = true;
-      flashGreenUntil = Date.now() + 1500;
-      this.y = canvas.height;
+      flashGreenUntil = Date.now() + 500;
+      this.spin = 0;
     }
   }
 
